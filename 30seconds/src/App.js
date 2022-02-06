@@ -6,7 +6,6 @@ import QuestionsPage from './components/QuestionsPage'
 import ResultPage from './components/ResultPage'
 import Home from './components/Home'
 import LinksPage from './components/LinksPage'
-
 import OurNavbar from './components/OurNavbar';
 
 function App() {

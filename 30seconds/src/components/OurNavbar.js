@@ -17,7 +17,7 @@ const OurNavbar = () => {
         <Navbar class = "bg-dark" style={navStyle} 
         bg="dark" 
         variant="dark" 
-        expand="lg">
+        expand="xxl">
             <Container >
 
                 <Navbar.Brand style={{fontWeight: 600, fontSize: 50}}href="/">Home</Navbar.Brand>

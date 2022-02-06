@@ -9,13 +9,25 @@ function RecordingPage (){
 
     const interviewTime = {hours:0, minutes: 2, seconds: 30}
     const [TimerStatus,updateTimer] = useState(false);
+    const helpme = {
+        marginTop: "30px", 
+        textAlign: "center",
+        fontWeight: 600,
+        fontSize: "35px",
+    };
 
     return (
         <div>
-            <h1>{questions[getRandomInt(0,questions.length - 1)]}</h1>
-            <p>Interview Timer: </p>
-            <CountDownTimer TimerStatus={TimerStatus} hoursMinSecs={interviewTime}/>
-            <AudioRecorder updateTimer={updateTimer}/>
+
+            <h1 style={helpme}>{questions[getRandomInt(0,questions.length - 1)]}</h1>
+
+            <div className='d-flex justify-content-evenly'> 
+                <p> Interview Timer:</p>
+                <CountDownTimer TimerStatus={TimerStatus} hoursMinSecs={interviewTime}/>
+                 
+            </div>
+            <AudioRecorder  style={{marginLeft: "30%"}} updateTimer={updateTimer}/>
+
         </div>
     )
 }
