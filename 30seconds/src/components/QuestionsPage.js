@@ -1,13 +1,16 @@
-import { lightBlue } from '@mui/material/colors';
+
 import React from 'react'
 
 function QuestionsPage(){
     const questionList = questions.map((question,index) => <li>{question}</li>)
+	
     return (
-		
         <div>
-			<h1 style={{paddingLeft: 25, color:lightBlue}}>Behavioral Questions</h1>
-            <p style={{paddingLeft: 25}}> {questionList} </p>
+			<div> 
+				<h1 style={{color: "white", fontWeight: 600, paddingTop: 20, paddingBottom: 20, margin:0, backgroundColor: "#0dcaf0", paddingLeft: 75}}>Behavioral Questions</h1>
+				
+				<p style={{fontSize: "18px", backgroundColor: "#0dcaf0", paddingLeft: 75, paddingBottom: 20,  margin: 0}}> {questionList} </p>
+			</div>
         </div>
     );
 }

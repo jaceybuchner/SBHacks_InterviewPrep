@@ -12,7 +12,7 @@ function RecordingPage (){
 
     return (
         <div>
-            {questions[getRandomInt(0,questions.length - 1)]}
+            <h1>{questions[getRandomInt(0,questions.length - 1)]}</h1>
             <p>Interview Timer: </p>
             <CountDownTimer TimerStatus={TimerStatus} hoursMinSecs={interviewTime}/>
             <AudioRecorder updateTimer={updateTimer}/>

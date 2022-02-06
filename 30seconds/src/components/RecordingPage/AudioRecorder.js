@@ -10,12 +10,14 @@ function AudioRecorder(props) {
         video
         render={({ status, startRecording, stopRecording, pauseRecording, resumeRecording, mediaBlobUrl }) => (
           <div>
-            <p>The status of the video is {status}</p>
-            <button onClick={startRecording}>Start Recording</button>
-            <button onClick={pauseRecording}>Pause Recording</button>
-            <button onClick={resumeRecording}>Resume Recording</button>
-            <button onClick={stopRecording}>Stop Recording</button>
-            <video src={mediaBlobUrl} controls autoPlay loop />
+            <h3>The status of the video is {status}</h3>
+            <button type="button" class="btn btn-primary" onClick={startRecording}>Start Recording</button>
+            <button type="button" class="btn btn-warning" onClick={pauseRecording}>Pause Recording</button>
+            <button type="button" class="btn btn-primary" onClick={resumeRecording}>Resume Recording</button>
+            <button type="button" class="btn btn-danger" onClick={stopRecording}>Stop Recording</button>
+            <div>
+              <video src={mediaBlobUrl} controls autoPlay loop />
+            </div>
             {(status !='recording')?props.updateTimer(false):props.updateTimer(true)}
           </div>
         )}

@@ -3,24 +3,29 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
 
-
-
 function LinksPage() {
     const divStyling = {
         width: "33%",
     };
     const boxes = {
         backgroundColor: "#60A3D9",
-        paddingLeft: "20px",
+        padding: "20px",
+        borderRadius: "2px",
+        marginTop: "10px",
+        margin: "30px",
+        padding: "10px",
+        marginBottom: "40px",
+        width: "80%",
+        color: "white",
     };
     return ( 
 
         <div>
-            <h1 style={{ paddingTop: 30, paddingBottom: 20, paddingLeft: "33%", paddingRight:"33%"}}>
+            <h1 style={{fontWeight: 600,  paddingTop: 30, paddingBottom: 5, paddingLeft: "30%", paddingRight:"20%"}}>
                     Job Search Websites
             </h1>
 
-            <div> 
+            <div className='d-flex justify-content-evenly'> 
                 
                     
                     <div style={boxes}className="p-2 flex-fill"> 
@@ -36,7 +41,7 @@ function LinksPage() {
                         </p>
                     </div>
                     
-                    <div className="p-2 flex-fill">
+                    <div style={boxes}className="p-2 flex-fill">
                         <h3>AngelList</h3>
                         <Link color="inherit" href="https://angel.co/jobs">
                             https://angel.co/jobs 
@@ -49,7 +54,7 @@ function LinksPage() {
                         </p>
                     </div>
 
-                    <div className="p-2 flex-fill">
+                    <div style={boxes} className="p-2 flex-fill">
                         <h3>Handshake</h3>
                         <Link color="inherit" href="https://joinhandshake.com/">
                             https://joinhandshake.com/ 
