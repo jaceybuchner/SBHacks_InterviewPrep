@@ -6,6 +6,7 @@ function QuestionsPage(){
 	
     return (
         <div>
+			
 			<div> 
 				<h1 style={{color: "white", fontWeight: 600, paddingTop: 20, paddingBottom: 20, margin:0, backgroundColor: "#0dcaf0", paddingLeft: 75}}>Behavioral Questions</h1>
 				

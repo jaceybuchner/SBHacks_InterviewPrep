@@ -9,7 +9,7 @@ function LinksPage() {
         borderRadius: "5px",
         marginTop: "30px",
         margin: "20px",
-        marginBottom: "100px",
+        marginBottom: "80px",
         width: "80%",
         color: "white",
     };
@@ -32,7 +32,7 @@ function LinksPage() {
               </div>
            
 
-            <div style={{marginTop: 40}}className='d-flex justify-content'> 
+            <div style={{marginTop: 20}}className='d-flex justify-content'> 
                 
                     
                     <div style={boxes}className="p-2 flex-fill"> 

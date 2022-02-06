@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import  './OurNavbar.css';
 
 
-import {Nav, Container, Navbar, NavDropdown, MenuItem,  Tabs, ButtonToolbar, Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl} from 'react-bootstrap';
+import {Nav, Container, Navbar} from 'react-bootstrap';
 
 
 const OurNavbar = () => {
@@ -29,14 +29,11 @@ const OurNavbar = () => {
                     <Nav style={backgroundStyle}className="me-auto">
                         <Nav.Link class = ".text-light" style={{paddingLeft: 50}} href="/interview">Interview</Nav.Link>
                         <Nav.Link style={{paddingLeft: 50}} href="/question">Questions</Nav.Link>
-                        <Nav.Link style={{paddingLeft: 50}} href="/links">Links</Nav.Link>
+                        <Nav.Link style={{paddingLeft: 50}} href="/links">Job Search</Nav.Link>
                     </Nav>
-                </Navbar.Collapse>
-            
-                
+                </Navbar.Collapse>     
             </Container>
         </Navbar>
-     
     );
 }
 
