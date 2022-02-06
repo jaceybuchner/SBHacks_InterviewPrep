@@ -2,6 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  './OurNavbar.css';
 
+
+import img1 from './nooutline.png';
+
+
+
 import {Nav, Container, Navbar, NavDropdown, MenuItem,  Tabs, ButtonToolbar, Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
@@ -19,8 +24,10 @@ const OurNavbar = () => {
         variant="dark" 
         expand="xxl">
             <Container >
-
-                <Navbar.Brand style={{fontWeight: 600, fontSize: 50}}href="/">Home</Navbar.Brand>
+            
+                <Navbar.Brand style={{fontWeight: 600, fontSize: 50}}href="/">
+                    30S
+                </Navbar.Brand>
 
                 <Navbar.Toggle />
                 <Navbar.Collapse>
@@ -39,3 +46,4 @@ const OurNavbar = () => {
 }
 
 export default OurNavbar;
+

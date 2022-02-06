@@ -13,11 +13,12 @@ function LinksPage() {
         borderRadius: "2px",
         marginTop: "10px",
         margin: "30px",
-        padding: "10px",
+        padding: "20px",
         marginBottom: "40px",
         width: "80%",
         color: "white",
     };
+    
     return ( 
 
         <div>
@@ -25,7 +26,7 @@ function LinksPage() {
                     Job Search Websites
             </h1>
 
-            <div className='d-flex justify-content-evenly'> 
+            <div className='d-flex justify-content'> 
                 
                     
                     <div style={boxes}className="p-2 flex-fill"> 
