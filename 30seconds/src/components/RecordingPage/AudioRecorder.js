@@ -1,58 +1,28 @@
 import React, {useState} from 'react';
-import MicRecorder from 'mic-recorder-to-mp3';
+import { ReactMediaRecorder } from "react-media-recorder";
 
-function AudioRecorder(){
-
-  const Mp3Recorder = new MicRecorder({ bitRate: 128 });
-    
-  const [isRecording, setRecording] = useState(false)
-  const [blobURL, setBlobURL] = useState('')
-  const [isBlocked, setBlocked] = useState(false)
-
-  const start = () => {
-    if (isBlocked) {
-      console.log('Permission Denied');
-    } else {
-      Mp3Recorder
-        .start()
-        .then(() => {
-          setRecording(true);
-        }).catch((e) => console.error(e));
-    }
-  };
-
-  const stop = () => {
-    Mp3Recorder
-      .stop()
-      .getMp3()
-      .then(([buffer, blob]) => {
-        setBlobURL(URL.createObjectURL(blob))
-        setRecording(false)
-      }).catch((e) => console.log(e));
-    console.log(blobURL)
-  };
-
-  function componentDidMount() {
-    navigator.getUserMedia({ audio: true },
-      () => {
-        console.log('Permission Granted');
-        setBlocked(false)
-      },
-      () => {
-        console.log('Permission Denied');
-        setBlocked(true)
-      },
-    );
-  }
-
+function AudioRecorder(props) {
+  const [useURL,setURL] = useState('empty')
   return(
     <div>
-      <button onClick={start} disabled={isRecording}>Record</button>
-      <button onClick={stop} disabled={!isRecording}>Stop</button>
-      <audio src={blobURL} controls="controls" />
+
+      <ReactMediaRecorder
+        video
+        render={({ status, startRecording, stopRecording, pauseRecording, resumeRecording, mediaBlobUrl }) => (
+          <div>
+            <p>The status of the video is {status}</p>
+            <button onClick={startRecording}>Start Recording</button>
+            <button onClick={pauseRecording}>Pause Recording</button>
+            <button onClick={resumeRecording}>Resume Recording</button>
+            <button onClick={stopRecording}>Stop Recording</button>
+            <video src={mediaBlobUrl} controls autoPlay loop />
+            {(status !='recording')?props.updateTimer(false):props.updateTimer(true)}
+          </div>
+        )}
+      />
+      {useURL}
     </div>
   )
-  
 }
 
 export default AudioRecorder
