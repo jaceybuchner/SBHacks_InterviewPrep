@@ -7,11 +7,18 @@ function QuestionsPage(){
     return (
         <div>
 			
-			<div> 
+			<div style={{listStyle: "none"}}> 
+
 				<h1 style={{color: "white", fontWeight: 600, paddingTop: 20, paddingBottom: 20, margin:0, backgroundColor: "#0dcaf0", paddingLeft: 75}}>Behavioral Questions</h1>
-				
-				<p style={{fontSize: "18px", backgroundColor: "#0dcaf0", paddingLeft: 75, paddingBottom: 20, margin: 0}}> {questionList} </p>
+				<h4 style={{color: "white", fontWeight: 500, margin:0, backgroundColor: "#0dcaf0", paddingLeft: 75}}>
+					A curated list of the most asked questions during Behavioral Interviews. 
+				</h4>
+				<h4 style={{color: "white", fontWeight: 500, paddingBottom: 15, margin:0, backgroundColor: "#0dcaf0", paddingLeft: 75}}>
+					Use these questions below as practice questions!
+				</h4>
+				<p style={{fontSize: "18px", backgroundColor: "#0dcaf0", paddingLeft: 75, paddingBottom: 30, margin: 0}}> {questionList} </p>
 			</div>
+
         </div>
     );
 }

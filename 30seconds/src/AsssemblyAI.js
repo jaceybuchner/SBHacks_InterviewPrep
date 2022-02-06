@@ -17,7 +17,7 @@ function AssemblyAI(props){
     }
     
     const fillerFeedback = () => {
-        if(transcript.includes("um") || transcript.includes("uh") || transcript.includes("hmm") || transcript.includes("uh huh") || transcript.includes("mhm")) {
+        if(transcript.toLowerCase().includes("um") || transcript.toLowerCase().includes("uh") || transcript.toLowerCase().includes("hmm") || transcript.toLowerCase().includes("uh huh") || transcript.toLowerCase().includes("mhm")) {
             return "You have some filler words in your speech. Try to eliminate them"
         }
     }
@@ -79,20 +79,21 @@ function AssemblyAI(props){
             <div className="d-flex justify-content-center"> 
                 {(!loading)?
                     <button type="button" class="btn btn-success mb-3" onClick={onChange}>Submit</button>
-                :"...Loading..."} 
+                :".Loading..."} 
             </div>
 
-            
-            <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignContent: 'center'}}>
-                <h6 class=" row-2">Your Interview Scoring: </h6>
-                <div>
-                    {(transcript !== 'empty')? "Transcript: \"" + transcript + "\"" : ''}
+            <div className="d-flex justify-content-center">
+                <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignContent: 'center'}}>
+                    <h6 class=" row-2">Your Interview Scoring: </h6>
+                    <div>
+                        {(transcript !== 'empty')? "Transcript: \"" + transcript + "\"" : ''}
+                    </div>
+                    <div>
+                        {(transcript !== 'empty')? "Confidence: " + Math.floor(confidence*10000)/100 + "%" : ''}
+                    </div>
+                    <div>{feedback()}</div>
+                    <div>{fillerFeedback()}</div>
                 </div>
-                <div>
-                    {(transcript !== 'empty')? "Confidence: " + Math.floor(confidence*10000)/100 + "% " : ''}
-                </div>
-                {feedback()}
-                {fillerFeedback()}
             </div>
         </div>
     )
