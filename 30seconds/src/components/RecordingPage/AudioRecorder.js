@@ -44,6 +44,15 @@ function AudioRecorder(){
       },
     );
   }
+
+  return(
+    <div>
+      <button onClick={start} disabled={isRecording}>Record</button>
+      <button onClick={stop} disabled={!isRecording}>Stop</button>
+      <audio src={blobURL} controls="controls" />
+    </div>
+  )
+  
 }
 
 export default AudioRecorder

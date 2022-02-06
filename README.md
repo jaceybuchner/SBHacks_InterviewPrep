@@ -1,1 +1,0 @@
-# SBHacks_InterviewPrep

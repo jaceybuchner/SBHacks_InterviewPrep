@@ -6,7 +6,6 @@ function RecordingPage (){
     return (
         <div>
             <AudioRecorder/>
-
         </div>
     )
 }

@@ -6,17 +6,18 @@ import {Link} from 'react-router-dom';
 
 const OurNavbar = () => {
     return (
-        <Navbar bg="primary" variant="dark">
+        
+        <Navbar style={{paddingBottom: 10, paddingTop:10, fontSize: 35}} bg="primary" variant="dark">
             <Container>
-                <Navbar.Brand href="/">30Seconds</Navbar.Brand>
-                <Nav className="me-auto">
-                    <Nav.Link href="/record">Interview</Nav.Link>
+                <Navbar.Brand  style={{fontSize: 35}}href="/">30Seconds</Navbar.Brand>
+                <Nav style={{paddingLeft: 100}}className="me-auto">
+                    <Nav.Link href="/interview">Interview</Nav.Link>
                     <Nav.Link href="/question">Questions</Nav.Link>
-                    <Nav.Link href="/result">Result</Nav.Link>
                     <Nav.Link href="/links">Links</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
+     
     );
 }
 

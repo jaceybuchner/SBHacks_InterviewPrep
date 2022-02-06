@@ -5,11 +5,10 @@ function QuestionsPage(){
     return (
 	
         <div>
-            {questionList}
+            <p>{questionList}</p>
         </div>
-    )
+    );
 }
-
 
 //40 Questions in the array
 export const questions = [
@@ -55,4 +54,4 @@ export const questions = [
 	"Who are Your Role Models in Life"
 ];
 
-export default QuestionsPage
+export default QuestionsPage;
