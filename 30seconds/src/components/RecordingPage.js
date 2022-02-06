@@ -6,7 +6,7 @@ import CountDownTimer from './CountDownTimer'
 
 
 function RecordingPage (){
-
+    const [qNumber,setQ] = useState(getRandomInt(0,questions.length - 1))
     const interviewTime = {hours:0, minutes: 2, seconds: 30}
     const [TimerStatus,updateTimer] = useState(false);
     const helpme = {
@@ -19,14 +19,14 @@ function RecordingPage (){
     return (
         <div>
 
-            <h1 style={helpme}>{questions[getRandomInt(0,questions.length - 1)]}</h1>
+            <h1 style={helpme}>{questions[qNumber]}</h1>
 
             <div className='d-flex justify-content-evenly'> 
                 <p> Interview Timer:</p>
                 <CountDownTimer TimerStatus={TimerStatus} hoursMinSecs={interviewTime}/>
                  
             </div>
-            <AudioRecorder  style={{marginLeft: "30%"}} updateTimer={updateTimer}/>
+            <AudioRecorder style={{marginLeft: "30%"}} updateTimer={updateTimer}/>
 
         </div>
     )

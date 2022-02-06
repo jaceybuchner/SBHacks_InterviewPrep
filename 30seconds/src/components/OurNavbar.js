@@ -3,12 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import  './OurNavbar.css';
 
 
-import img1 from './nooutline.png';
-
-
-
 import {Nav, Container, Navbar, NavDropdown, MenuItem,  Tabs, ButtonToolbar, Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+
 
 const OurNavbar = () => {
     const navStyle = { 
@@ -18,11 +14,10 @@ const OurNavbar = () => {
         fontWeight: 500,
     };
     return (
-        
         <Navbar class = "bg-dark" style={navStyle} 
         bg="dark" 
         variant="dark" 
-        expand="xxl">
+        expand="xl">
             <Container >
             
                 <Navbar.Brand style={{fontWeight: 600, fontSize: 50}}href="/">
