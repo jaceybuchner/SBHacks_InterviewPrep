@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import RecordingPage from './components/RecordingPage'
 import QuestionsPage from './components/QuestionsPage'
-import ResultPage from './components/ResultPage'
 import Home from './components/Home'
 import LinksPage from './components/LinksPage'
 import OurNavbar from './components/OurNavbar';
@@ -18,7 +17,6 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/interview" element={<RecordingPage/>} />
           <Route exact path="/question" element={<QuestionsPage/>} />
-          <Route exact path="/result" element={<ResultPage/>} />
           <Route exact path="/links" element={<LinksPage/>} />
         </Routes>
       </Router>

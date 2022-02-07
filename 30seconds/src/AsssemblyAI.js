@@ -15,11 +15,24 @@ function AssemblyAI(props){
             return "Your confidence is great! Try focusing on improving other things."
         }
     }
+
+    const fillerList = ["um", "uh", "hmm", "huh", "mhm", "um,", "uh,", "hmm,", "huh,", "mhm,", "um.", "uh.", "hmm.", "huh.", "mhm."]
     
     const fillerFeedback = () => {
-        if(transcript.toLowerCase().includes("um") || transcript.toLowerCase().includes("uh") || transcript.toLowerCase().includes("hmm") || transcript.toLowerCase().includes("uh huh") || transcript.toLowerCase().includes("mhm")) {
-            return "You have some filler words in your speech. Try to eliminate them"
+        const wordList = transcript.toLowerCase().split(" ")
+        let sum = 0
+        wordList.forEach(element => {
+            if(fillerList.includes(element)){
+                sum = sum + 1
+            }
+        });
+        if(sum == 1) {
+            return "You have 1 filler word in your speech. Try to eliminate it!"
         }
+        else if(sum > 1) {
+            return "You have " + sum + " filler words in your speech. Try to eliminate them!"
+        }
+        return "No filler word detected. Good Job!"
     }
 
     const onChange = () => {
@@ -38,14 +51,12 @@ function AssemblyAI(props){
             await assembly
                 .post("/upload", blob)
                 .then((res) => {
-                    console.log(res.data)
                     assembly
                         .post("/transcript", {
                             audio_url: res.data['upload_url'],
                             disfluencies: true
                         })
                         .then((res) => {
-                            console.log(res.data)
                             recurGet(res.data['id'])
                         }).catch((err) => console.error(err));
                 }).catch((err) => console.error(err));
@@ -56,7 +67,6 @@ function AssemblyAI(props){
             await assembly
                 .get(`/transcript/${e}`)
                 .then((res) => {
-                    console.log(res.data)
                     if(res.data['status'] !== 'completed'){
                         setLoading(true)
                         recurGet(e)
@@ -75,26 +85,26 @@ function AssemblyAI(props){
     return (
 
         <div> 
-
-            <div className="d-flex justify-content-center"> 
+            {(props.url != null)?
+            <div className="d-flex justify-content-center" style={{padding:'10px'}}> 
                 {(!loading)?
-                    <button type="button" class="btn btn-success mb-3" onClick={onChange}>Submit</button>
-                :".Loading..."} 
-            </div>
-
+                    <button type="button" className="btn btn-success mb-3" onClick={onChange}>Submit</button>
+                :"Loading..."} 
+            </div>:''}
+            {(transcript !== 'empty')?
             <div className="d-flex justify-content-center">
-                <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignContent: 'center'}}>
-                    <h6 class=" row-2">Your Interview Scoring: </h6>
-                    <div>
-                        {(transcript !== 'empty')? "Transcript: \"" + transcript + "\"" : ''}
+                <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignContent: 'center', padding:'50px'}}>
+                    <h6 className=" row-2">Your Interview Scoring: </h6>
+                    <div style={{padding:'5px'}}>
+                        {"Transcript: \"" + transcript + "\""}
                     </div>
-                    <div>
-                        {(transcript !== 'empty')? "Confidence: " + Math.floor(confidence*10000)/100 + "%" : ''}
+                    <div style={{padding:'5px'}}>
+                        {"Confidence: " + Math.floor(confidence*10000)/100 + "%"}
                     </div>
-                    <div>{feedback()}</div>
-                    <div>{fillerFeedback()}</div>
+                    <div style={{padding:'5px'}}>{feedback()}</div>
+                    <div style={{padding:'5px'}}>{fillerFeedback()}</div>
                 </div>
-            </div>
+            </div>:''}
         </div>
     )
 }
