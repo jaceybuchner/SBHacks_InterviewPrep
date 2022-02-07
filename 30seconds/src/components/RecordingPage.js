@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import AudioRecorder from './RecordingPage/AudioRecorder'
-import {QuestionsPage, questions} from './QuestionsPage'
-import CountDownTimer from './CountDownTimer'
+import {questions} from './QuestionsPage'
+import CountDownTimer from './RecordingPage/CountDownTimer'
 
 
 

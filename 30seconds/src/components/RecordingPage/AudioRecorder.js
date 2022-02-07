@@ -30,7 +30,6 @@ function AudioRecorder(props) {
         video
         render={({ status, startRecording, stopRecording, pauseRecording, resumeRecording, mediaBlobUrl }) => (
           <div>
-            
               <div className="d-flex justify-content-center">
               <h3 className="p-2 col-example text-left" style={{fontSize: "20px"}}>Status: {status}</h3>
               </div>
@@ -40,10 +39,10 @@ function AudioRecorder(props) {
               </div>
               
               <div className="d-flex justify-content-center" style={{marginBottom:"30px"}}> 
-                <button style={{width: 100}}type="button" class="btn btn-primary col-2 m-2" onClick={startRecording}>Start</button>
-                <button style={{width: 100}} type="button" class="btn btn-primary col-2 m-2" onClick={pauseRecording}>Pause</button>
-                <button style={{width: 100}}type="button" class="btn btn-primary col-2 m-2" onClick={resumeRecording}>Resume</button>
-                <button style={{width: 100}}type="button" class="btn btn-danger col-2 m-2" onClick={stopRecording}>Stop</button>
+                <button style={{width: 100}}type="button" className="btn btn-primary col-2 m-2" onClick={startRecording}>Start</button>
+                <button style={{width: 100}} type="button" className="btn btn-primary col-2 m-2" onClick={pauseRecording}>Pause</button>
+                <button style={{width: 100}}type="button" className="btn btn-primary col-2 m-2" onClick={resumeRecording}>Resume</button>
+                <button style={{width: 100}}type="button" className="btn btn-danger col-2 m-2" onClick={stopRecording}>Stop</button>
               </div>
               <AssemblyAI url={mediaBlobUrl} setID={setID} vidID={vidID}/>
               {(status !='recording')?props.updateTimer(false):props.updateTimer(true)}
